@@ -11,9 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       # This step uses the hello-world-action stored in this workflow's repository.
+      - uses: docker://wordpress
       - uses: ./wp-cli
         with:
-          args: package install wp-cli/find-command
-      - uses: ./wp-cli
-        with:
-          args: find
+          args: --path=/var/www/htm plugin list
