@@ -2,4 +2,4 @@
 
 set -e
 
-sh -c "wp $*"
+sh -c "which wp"
