@@ -11,11 +11,13 @@ LABEL com.github.actions.color="blue"
 
 # COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
 
-USER root # GitHub Actions are run as root
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
 	&& chmod +x wp-cli.phar \
 	&& mv wp-cli.phar /usr/local/bin/wp
+
+
+# USER root
 
 COPY "entrypoint.sh" "/entrypoint.sh"
 RUN chmod 777 /entrypoint.sh
