@@ -11,5 +11,5 @@ jobs:
       run: docker-compose up -d -f wp-cli/stack.yml
       name: WP-CLI
       uses: ./wp-cli
-        with:
-          args: plugin list
+      with:
+        args: plugin list
