@@ -16,4 +16,4 @@ USER root
 COPY "entrypoint.sh" "/entrypoint.sh"
 RUN chmod 777 /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["wp"]
+# CMD ["wp"]
