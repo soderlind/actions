@@ -6,10 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      uses: actions/checkout@master
-      name: Build the stack
-      run: docker-compose up -d -f wp-cli/stack.yml
-      name: WP-CLI
-      uses: ./wp-cli
-      with:
-        args: plugin list
+      - uses: actions/checkout@master
+        name: Build the stack
+        run: docker-compose up -d -f wp-cli/stack.yml
+      - uses: ./wp-cli
+        name: WP-CLI
+        with:
+          args: plugin list
