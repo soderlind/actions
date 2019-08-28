@@ -14,6 +14,6 @@ LABEL com.github.actions.color="blue"
 # RUN
 
 COPY "entrypoint.sh" "/entrypoint.sh"
+RUN chmod 777 /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-RUN ["chmod", "+x", "/entrypoint.sh"]
 CMD ["wp"]
