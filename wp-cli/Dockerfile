@@ -9,7 +9,7 @@ LABEL com.github.actions.description="Wraps the WP-CLI to enable common wp comma
 LABEL com.github.actions.icon="package"
 LABEL com.github.actions.color="blue"
 
-COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
+# COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
 
 # RUN
 
