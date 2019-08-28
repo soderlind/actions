@@ -1,4 +1,4 @@
-FROM wordpress:cli
+FROM wordpress:php7.3-fpm-alpine
 
 LABEL repository="http://github.com/soderlind/actions/wp-cli"
 LABEL homepage="http://github.com/soderlind/actions/wp-cli"
@@ -11,8 +11,12 @@ LABEL com.github.actions.color="blue"
 
 # COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
 
-# RUN
-USER root
+USER root # GitHub Actions are run as root
+
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+	&& chmod +x wp-cli.phar \
+	&& mv wp-cli.phar /usr/local/bin/wp
+
 COPY "entrypoint.sh" "/entrypoint.sh"
 RUN chmod 777 /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
