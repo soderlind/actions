@@ -12,7 +12,7 @@ LABEL com.github.actions.color="blue"
 # COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
 
 # RUN
-
+USER root
 COPY "entrypoint.sh" "/entrypoint.sh"
 RUN chmod 777 /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
