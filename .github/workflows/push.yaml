@@ -4,16 +4,12 @@ on: push
 
 jobs:
   build:
-    # Job name is Greeting
-    name: Init
-    # This job runs on Linux
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      run: docker-compose -f stack.yml up
-      # This step uses the hello-world-action stored in this workflow's repository.
-      # - uses: docker://wordpress
-
-      - uses: ./wp-cli
-        with:
+    - uses: actions/checkout@master
+    - name: Build the stack
+      run: docker-compose up -d -f wp-cli/stack.yml
+    - name: WP-CLI
+    - uses: ./wp-cli
+      with:
           args: plugin list
