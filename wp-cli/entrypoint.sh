@@ -2,4 +2,4 @@
 
 set -e
 
-sh -c "wp --allow-root $*"
+sh -c "wp --allow-root --path=/var/www/html $*"
