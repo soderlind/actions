@@ -13,4 +13,7 @@ jobs:
       # This step uses the hello-world-action stored in this workflow's repository.
       - uses: ./wp-cli
         with:
+          args: package install wp-cli/find-command
+      - uses: ./wp-cli
+        with:
           args: find
