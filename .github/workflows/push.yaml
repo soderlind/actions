@@ -9,12 +9,12 @@ jobs:
     # This job runs on Linux
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      uses: actions/checkout@v1
       name: Build the stack
       run: docker-compose -f stack.yml up
       # This step uses the hello-world-action stored in this workflow's repository.
       # - uses: docker://wordpress
 
-      - uses: ./wp-cli
+      uses: ./wp-cli
         with:
           args: plugin list
