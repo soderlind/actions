@@ -11,7 +11,7 @@ LABEL com.github.actions.color="blue"
 
 
 ENV WORDPRESS_DB_HOST=localhost
-ENV WORDPRESS_DB_USER=wordpress
+ENV WORDPRESS_DB_USER=root
 ENV WORDPRESS_DB_PASSWORD=wordpress
 ENV WORDPRESS_DB_NAME=wordpress
 ENV WORDPRESS_TABLE_PREFIX=wp_
