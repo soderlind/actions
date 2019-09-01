@@ -7,8 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Build the stack
-        run: docker-compose -f wp-cli/stack.yml up
       - uses: ./wp-cli
         name: WP-CLI
         with:
