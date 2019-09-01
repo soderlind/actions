@@ -8,3 +8,4 @@ set -e
 # sh -c "wp --allow-root --path=/usr/src/wordpress/ $*"
 
 sh -c "find / -name mysql\*"
+sh -c "find / -name wp\*"
