@@ -11,16 +11,16 @@ LABEL com.github.actions.color="blue"
 
 # COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
 
-COPY "mysql-wp.sql" "/mysql-wp.sql"
-RUN mysql -u root -p root < /mysql-wp.sql
+# COPY "mysql-wp.sql" "/mysql-wp.sql"
+# RUN mysql -u root -p root < /mysql-wp.sql
 
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-	&& chmod +x wp-cli.phar \
-	&& mv wp-cli.phar /usr/local/bin/wp
+# RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+# 	&& chmod +x wp-cli.phar \
+# 	&& mv wp-cli.phar /usr/local/bin/wp
 
-RUN wp config create --dbname=wordpress --dbuser=wordpress --dbpass=wordpress
+# RUN wp config create --dbname=wordpress --dbuser=wordpress --dbpass=wordpress
 
-RUN wp core install --allow-root --path=/usr/src/wordpress --url=wpcli.local --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@wpcli.local
+# RUN wp core install --allow-root --path=/usr/src/wordpress --url=wpcli.local --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@wpcli.local
 
 # USER root
 COPY "wp-cli.yml" "/wp-cli.yml"
