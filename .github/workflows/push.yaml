@@ -10,7 +10,7 @@ jobs:
         image: wordpress:php7.3-fpm-alpine
         ports:
           - 8080:80
-        environment:
+        env:
           WORDPRESS_DB_HOST: db
           WORDPRESS_DB_USER: wordpress
           WORDPRESS_DB_PASSWORD: wordpress
@@ -18,8 +18,7 @@ jobs:
 
       db:
         image: mysql:5.7
-        restart: always
-        environment:
+        env:
           MYSQL_DATABASE: wordpress
           MYSQL_USER: wordpress
           MYSQL_PASSWORD: wordpress
