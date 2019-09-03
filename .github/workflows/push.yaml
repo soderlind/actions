@@ -7,34 +7,33 @@ jobs:
     runs-on: ubuntu-latest
     services:
       wordpress:
-      image: wordpress
-      restart: always
-      ports:
+        image: wordpress
+        ports:
         - 8080:80
-      env:
-        WORDPRESS_DB_HOST: db
-        WORDPRESS_DB_USER: exampleuser
-        WORDPRESS_DB_PASSWORD: examplepass
-        WORDPRESS_DB_NAME: exampledb
-      # Keep your data
-      volumes:
-        - ./site:/var/www/html/
+        env:
+          WORDPRESS_DB_HOST: db
+          WORDPRESS_DB_USER: exampleuser
+          WORDPRESS_DB_PASSWORD: examplepass
+          WORDPRESS_DB_NAME: exampledb
+        # Keep your data
+        volumes:
+          - ./site:/var/www/html/
 
-    cli:
-      image: wordpress:cli
-      volumes:
-        - ./site:/var/www/html/
+      cli:
+        image: wordpress:cli
+        volumes:
+          - ./site:/var/www/html/
 
-    db:
-      image: mysql:5.7
-      env:
-        MYSQL_DATABASE: exampledb
-        MYSQL_USER: exampleuser
-        MYSQL_PASSWORD: examplepass
-        MYSQL_RANDOM_ROOT_PASSWORD: "1"
-      # Keep your data
-      volumes:
-        - ./db:/var/lib/mysql
+      db:
+        image: mysql:5.7
+        env:
+          MYSQL_DATABASE: exampledb
+          MYSQL_USER: exampleuser
+          MYSQL_PASSWORD: examplepass
+          MYSQL_RANDOM_ROOT_PASSWORD: "1"
+        # Keep your data
+        volumes:
+          - ./db:/var/lib/mysql
     steps:
       - uses: actions/checkout@master
       - name: WP-CLI
