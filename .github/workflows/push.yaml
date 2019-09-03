@@ -8,7 +8,6 @@ jobs:
     services:
       wordpress:
         image: wordpress:php7.3-fpm-alpine
-        restart: always
         ports:
           - 8080:80
         environment:
