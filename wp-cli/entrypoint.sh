@@ -2,6 +2,7 @@
 
 set -e
 
+
 # if ! $(sh -c "wp --allow-root core is-installed"); then
 #     sh -c "wp --allow-root core install"
 # fi

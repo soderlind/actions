@@ -1,4 +1,4 @@
-FROM wordpress
+FROM wordpress:php7.3-fpm-alpine
 
 LABEL repository="http://github.com/soderlind/actions/wp-cli"
 LABEL homepage="http://github.com/soderlind/actions/wp-cli"
