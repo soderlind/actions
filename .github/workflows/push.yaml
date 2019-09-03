@@ -24,8 +24,9 @@ jobs:
           MYSQL_PASSWORD: wordpress
           MYSQL_RANDOM_ROOT_PASSWORD: '1'
     steps:
-      # - uses: actions/checkout@master
+      name: Checkout
+      - uses: actions/checkout@master
       name: WP-CLI
-      uses: ./wp-cli
+      - uses: ./wp-cli
         with:
-          wp: plugin list
+          args: plugin list
