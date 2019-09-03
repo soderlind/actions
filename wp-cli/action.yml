@@ -1,0 +1,12 @@
+name: 'WP-CLI'
+description: 'Get started with Container actions'
+author: 'GitHub'
+inputs:
+  wp:
+    description: 'commands'
+    default: '--info'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.wp }}

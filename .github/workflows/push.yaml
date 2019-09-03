@@ -5,9 +5,29 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      wordpress:
+        image: wordpress:php7.3-fpm-alpine
+        restart: always
+        ports:
+          - 8080:80
+        environment:
+          WORDPRESS_DB_HOST: db
+          WORDPRESS_DB_USER: wordpress
+          WORDPRESS_DB_PASSWORD: wordpress
+          WORDPRESS_DB_NAME: wordpress
+
+      db:
+        image: mysql:5.7
+        restart: always
+        environment:
+          MYSQL_DATABASE: wordpress
+          MYSQL_USER: wordpress
+          MYSQL_PASSWORD: wordpress
+          MYSQL_RANDOM_ROOT_PASSWORD: '1'
     steps:
       - uses: actions/checkout@master
-      - uses: ./wp-cli
         name: WP-CLI
+      - uses: ./wp-cli
         with:
-          args: plugin list
+          wp: plugin list

@@ -1,4 +1,4 @@
-FROM wordpress:php7.3-fpm-alpine
+FROM wordpress
 
 LABEL repository="http://github.com/soderlind/actions/wp-cli"
 LABEL homepage="http://github.com/soderlind/actions/wp-cli"
@@ -10,11 +10,11 @@ LABEL com.github.actions.icon="package"
 LABEL com.github.actions.color="blue"
 
 
-ENV WORDPRESS_DB_HOST=localhost
-ENV WORDPRESS_DB_USER=root
-ENV WORDPRESS_DB_PASSWORD=wordpress
-ENV WORDPRESS_DB_NAME=wordpress
-ENV WORDPRESS_TABLE_PREFIX=wp_
+# ENV WORDPRESS_DB_HOST=localhost
+# ENV WORDPRESS_DB_USER=root
+# ENV WORDPRESS_DB_PASSWORD=wordpress
+# ENV WORDPRESS_DB_NAME=wordpress
+# ENV WORDPRESS_TABLE_PREFIX=wp_
 
 
 # COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
@@ -22,9 +22,9 @@ ENV WORDPRESS_TABLE_PREFIX=wp_
 # COPY "mysql-wp.sql" "/mysql-wp.sql"
 # RUN mysql -u root -p root < /mysql-wp.sql
 
-# RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-# 	&& chmod +x wp-cli.phar \
-# 	&& mv wp-cli.phar /usr/local/bin/wp
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+	&& chmod +x wp-cli.phar \
+	&& mv wp-cli.phar /usr/local/bin/wp
 
 # RUN wp config create --dbname=wordpress --dbuser=wordpress --dbpass=wordpress
 
