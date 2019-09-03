@@ -36,7 +36,7 @@ jobs:
           - ./db:/var/lib/mysql
     steps:
       - uses: actions/checkout@master
-      - name: WP-CLI
+        name: WP-CLI
       - uses: ./wp-cli
         with:
           args: plugin list
