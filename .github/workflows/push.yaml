@@ -3,7 +3,7 @@ name: Test My Actions
 on: push
 
 jobs:
-  build:
+  wp_cli:
     runs-on: ubuntu-latest
     services:
       wordpress:
@@ -35,7 +35,6 @@ jobs:
         volumes:
           - ./db:/var/lib/mysql
     steps:
-      - uses: actions/checkout@master
         name: WP-CLI
       - uses: ./wp-cli
         with:

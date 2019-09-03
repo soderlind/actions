@@ -30,7 +30,8 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 # RUN wp core install --allow-root --path=/usr/src/wordpress --url=wpcli.local --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@wpcli.local
 
-# USER root
+USER root
+
 COPY "wp-cli.yml" "/wp-cli.yml"
 COPY "entrypoint.sh" "/entrypoint.sh"
 RUN chmod 777 /entrypoint.sh
