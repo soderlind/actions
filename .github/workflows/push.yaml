@@ -35,6 +35,8 @@ jobs:
         volumes:
           - ./db:/var/lib/mysql
     steps:
+      - uses: actions/checkout@master
+        path: src
         name: WP-CLI
       - uses: ./wp-cli
         with:
