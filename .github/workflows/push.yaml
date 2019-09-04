@@ -38,7 +38,7 @@ jobs:
       # - uses: actions/checkout@master
       #   with:
       #     path: src
-      name: WP-CLI
       uses: ./wp-cli
+      name: WP-CLI
       with:
         args: plugin list
