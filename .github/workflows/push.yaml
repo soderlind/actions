@@ -37,10 +37,10 @@ jobs:
     steps:
       - name: Create WordPress Config File
         run: |
-          wp config create --allow-root --path=/usr/src/wordpress --dbhost=db --dbname=wp --dbuser=wp --dbpass=wp
+          docker run --rm cli wp config create --allow-root --dbhost=db --dbname=wp --dbuser=wp --dbpass=wp
       - name: Install WordPress
         run: |
-          wp core install --allow-root --path=/usr/src/wordpress --url=wpcli.local --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@wpcli.local
+          docker run --rm cli wp core install --allow-root --path=/usr/src/wordpress --url=wpcli.local --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@wpcli.local
 
 
       # - uses: actions/checkout@master
