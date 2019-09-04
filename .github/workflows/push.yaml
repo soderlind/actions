@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Create WordPress Config File
         run: |
-          find /usr -name wp\*
+          find /usr -name wp
           cat /home/runner/work/actions/actions/wp-config.php
           cd /home/runner/work/actions/actions/
           wp config create --allow-root --dbhost=db --dbname=wp --dbuser=wp --dbpass=wp
